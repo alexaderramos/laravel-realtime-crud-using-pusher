@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Log;
 
 class UserDeleted implements ShouldBroadcast
 {
-    use Dispatchable, InteractsWithSockets, SerializesModels;
+    use Dispatchable, InteractsWithSockets /*, SerializesModels*/;
 
     public $user;
 
