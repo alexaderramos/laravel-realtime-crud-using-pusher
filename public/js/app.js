@@ -55790,6 +55790,15 @@ module.exports = function(module) {
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+Echo.channel('notifications').listen("UserSessionChanged", function (e) {
+  var notificationElement = document.getElementById('notification');
+  notificationElement.innerText = e.message;
+  notificationElement.classList.remove('invisible');
+  notificationElement.classList.remove('alert-success');
+  notificationElement.classList.remove('alert-danger');
+  notificationElement.classList.add('alert-' + e.type);
+  console.log(e);
+});
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /**
  * The following block of code may be used to automatically register your
@@ -55808,9 +55817,11 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-var app = new Vue({
-  el: '#app'
+/*
+const app = new Vue({
+    el: '#app',
 });
+*/
 
 /***/ }),
 
@@ -55950,8 +55961,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /var/www/laravel-realtime/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /var/www/laravel-realtime/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\laragon\www\laravel-realtime\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\laragon\www\laravel-realtime\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -6,6 +6,20 @@
 
 require('./bootstrap');
 
+Echo.channel('notifications')
+    .listen("UserSessionChanged",(e)=>{
+        const notificationElement  = document.getElementById('notification');
+        notificationElement.innerText = e.message;
+        notificationElement.classList.remove('invisible')
+        notificationElement.classList.remove('alert-success')
+        notificationElement.classList.remove('alert-danger')
+
+        notificationElement.classList.add('alert-'+e.type)
+
+        console.log(e)
+
+    })
+
 window.Vue = require('vue');
 
 /**
@@ -27,6 +41,11 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+
+
+
+/*
 const app = new Vue({
     el: '#app',
 });
+*/
